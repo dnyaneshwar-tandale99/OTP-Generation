@@ -1,0 +1,40 @@
+package com.company;
+import java.util.function.*;
+import java.util.*;
+class Employee{
+     String name;
+     int emp_no;
+     double wages;
+     Employee(String name,int emp_no,double wages)
+     {
+         this.name=name;
+         this.emp_no=emp_no;
+         this.wages=wages;
+     }
+
+}
+class Timesheet{
+    int emp_id;
+    int days;
+    Timesheet(int emp_id,int days)
+    {
+        this.emp_id=emp_id;
+        this.days=days;
+    }
+
+}
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        BiFunction<Employee,Timesheet,Double>f=(e,t)->e.wages*t.days;
+        Employee e=new Employee("Dnyaneshwar",01223,1080);
+        Timesheet t=new Timesheet(124,30);
+
+        System.out.println(f.apply(e,t));
+
+
+    }
+}
